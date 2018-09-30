@@ -54,11 +54,45 @@ func euler() {
 	fmt.Printf("%3f", cmplx.Pow(math.E, 1i*math.Pi)+1)
 }
 
+//强制类型转换
 func triangle() {
 	var a, b int = 3, 4
 	var c int
 	c = int(math.Sqrt(float64(a*a + b*b)))
 	fmt.Println(c)
+}
+
+//常量
+func consts() {
+	const (
+		filename = "abc.txt"
+	)
+	const a, b = 3, 4 // 不规定类型时，类型不确定
+	var c int
+	c = int(math.Sqrt(a*a + b*b)) //如果规定了类型就要强转
+	fmt.Println(filename, c)
+}
+
+//枚举
+func enmus() {
+	const (
+		cpp    = iota
+		_
+		java
+		python
+		golang
+	)
+	//b,kb,mb,gb,tb,pb
+	const (
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+	fmt.Println(cpp, java, python, golang)
+	fmt.Println(b,kb,mb,gb,tb,pb)
 }
 
 func main() {
@@ -70,4 +104,6 @@ func main() {
 
 	euler()
 	triangle()
+	consts()
+	enmus()
 }
